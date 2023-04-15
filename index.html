@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <title>Frontend Mentor | Ping coming soon page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <main>
+    <div class="container">
+      <img class="img-logo" src="images/logo.svg" alt="logo">
+      <section class="intro">
+        <h1>We are launching <strong>soon!</strong></h1>
+        <p>Subscribe and get notified</p>
+      </section>
+      <form action="#">
+        <input type="email" id="email-field" name="email" placeholder="Your email address..." onkeyup="checkEmail()">
+        <span id="email-invalid"></span>
+        <input type="submit" value="Notify Me">
+      </form>
+      <img class="img-dashboard" src="images/illustration-dashboard.png" alt="dashboard">
+      <ul class="socials">
+        <li><i class="fa-brands fa-facebook"></i></li>
+        <li><i class="fa-brands fa-twitter"></i></li>
+        <li><i class="fa-brands fa-instagram"></i></li>
+      </ul>
+      <p class="copy-right">&copy; Copyright Ping. All rights reserved.</p>
+    </div>
+  </main>
+
+  <!-- <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </p>
+  </footer> -->
+
+  <script>
+    var emailField = document.getElementById("email-field");
+    var emailInvalid = document.getElementById("email-invalid");
+
+    function checkEmail() {
+      const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+
+      if(!emailField.value.match(regex)) {
+        emailInvalid.innerHTML = "Please provide a valid email address";
+        emailInvalid.style.marginBottom = "1rem";
+        emailField.style.border = "2px solid red";
+        return false;
+      }
+
+      emailInvalid.innerHTML = "";
+      emailField.style.border = "2px solid hsl(223, 100%, 88%)";
+      return true;
+    }
+  </script>
+</body>
+</html>
